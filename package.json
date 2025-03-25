@@ -1,0 +1,32 @@
+{
+  "name": "bare-test",
+  "version": "0.0.0",
+  "description": "Testbed for Bare",
+  "exports": {
+    ".": "./index.js",
+    "./package": "./package.json"
+  },
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "prettier . --check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holepunchto/bare-test.git"
+  },
+  "author": "Holepunch",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/holepunchto/bare-test/issues"
+  },
+  "homepage": "https://github.com/holepunchto/bare-test#readme",
+  "engines": {
+    "bare": ">=1.16.0"
+  },
+  "devDependencies": {
+    "prettier": "^3.4.1",
+    "prettier-config-standard": "^7.0.0"
+  }
+}
