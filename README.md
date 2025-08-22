@@ -1,6 +1,6 @@
-# bare-tcp
+# bare-test
 
-Testbed for Bare.
+Cross-platform test driver for Bare.
 
 ```
 npm i bare-test

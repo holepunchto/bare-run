@@ -1,47 +1,52 @@
-cmake_minimum_required(VERSION 3.25)
+cmake_minimum_required(VERSION 3.31)
 
+find_package(cmake-bare REQUIRED PATHS node_modules/cmake-bare)
 find_package(cmake-bare-bundle REQUIRED PATHS node_modules/cmake-bare-bundle)
 find_package(cmake-fetch REQUIRED PATHS node_modules/cmake-fetch)
 
-fetch_package("github:holepunchto/bare@1.16.2")
+project(bare_test C)
 
-set(name bare_test)
-
-set(BUNDLE_OUT lib/test.bundle.h)
-
-project(${name} C)
+fetch_package("github:holepunchto/bare@1.21.7")
 
 add_bare_bundle(
-  ${name}_bundle
-  ENTRY ${TEST_FILE}
-  OUT ${BUNDLE_OUT}
+  bare_test_driver_bundle
+  ENTRY lib/driver.js
+  OUT lib/driver.bundle.h
   BUILTINS lib/builtins.json
 )
 
-add_executable(${name})
+add_executable(bare_test_driver)
 
 target_sources(
-  ${name}
+  bare_test_driver
   PRIVATE
-    ${BUNDLE_OUT}
-    lib/testbed.c
+    lib/driver.bundle.h
+    lib/driver.c
 )
 
 set_target_properties(
-  ${name}
+  bare_test_driver
   PROPERTIES
-  OUTPUT_NAME test
+  OUTPUT_NAME bare-test-driver
   ENABLE_EXPORTS ON
-  MACOSX_BUNDLE OFF
   WINDOWS_EXPORT_ALL_SYMBOLS ON
 )
 
 target_link_libraries(
-  ${name}
+  bare_test_driver
   PUBLIC
     $<LINK_LIBRARY:WHOLE_ARCHIVE,bare_static>
+  PRIVATE
+    log_static
+    rlimit_static
 )
 
-link_bare_modules(${name})
+link_bare_module(bare_test_driver bare-fs)
+link_bare_module(bare_test_driver bare-os)
 
-install(TARGETS ${name})
+bare_target(target)
+
+install(
+  TARGETS bare_test_driver
+  DESTINATION prebuilds/${target}
+)
