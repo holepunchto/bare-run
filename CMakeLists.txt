@@ -6,11 +6,11 @@ find_package(cmake-fetch REQUIRED PATHS node_modules/cmake-fetch)
 
 project(bare_test C)
 
-fetch_package("github:holepunchto/bare@1.21.7")
+fetch_package("github:holepunchto/bare@1.21.8")
 
 add_bare_bundle(
   bare_test_driver_bundle
-  ENTRY lib/driver.js
+  ENTRY lib/driver.mjs
   OUT lib/driver.bundle.h
   BUILTINS lib/builtins.json
 )
@@ -46,7 +46,4 @@ link_bare_module(bare_test_driver bare-os)
 
 bare_target(target)
 
-install(
-  TARGETS bare_test_driver
-  DESTINATION prebuilds/${target}
-)
+install(TARGETS bare_test_driver DESTINATION ${target})

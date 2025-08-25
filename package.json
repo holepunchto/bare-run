@@ -58,6 +58,7 @@
     "bare": ">=1.16.0"
   },
   "dependencies": {
+    "bare-bundle": "^1.9.0",
     "bare-bundle-id": "^1.0.1",
     "bare-fs": "^4.2.1",
     "bare-module": "^5.0.2",
@@ -70,7 +71,8 @@
     "bare-unpack": "^1.0.2",
     "bare-url": "^2.2.2",
     "bare-which": "^2.0.0",
-    "paparam": "^1.8.0"
+    "paparam": "^1.8.0",
+    "require-asset": "^1.1.0"
   },
   "devDependencies": {
     "cmake-bare": "^1.6.5",
