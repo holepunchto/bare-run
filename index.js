@@ -4,8 +4,10 @@ const { resolve } = require('bare-module-traverse')
 const id = require('bare-bundle-id')
 const pack = require('bare-pack')
 const fs = require('bare-pack/fs')
+
 const android = require('./lib/android')
 const ios = require('./lib/ios')
+const desktop = require('./lib/desktop')
 
 module.exports = async function run(entry, opts = {}) {
   const { base = '.', platform = process.platform, arch = process.arch } = opts
@@ -31,5 +33,7 @@ module.exports = async function run(entry, opts = {}) {
       return android.run(bundle, opts)
     case 'ios':
       return ios.run(bundle, opts)
+    default:
+      return desktop.run(bundle, opts)
   }
 }

@@ -12,3 +12,9 @@ test('android', async (t) => {
     platform: 'android'
   })
 })
+
+test('darwin', async (t) => {
+  await run(require.resolve('./test/fixtures/basic/index.js'), {
+    platform: 'darwin'
+  })
+})
