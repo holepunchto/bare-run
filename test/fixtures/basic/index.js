@@ -1,1 +1,3 @@
-console.log(require('bare-fs'))
+const os = require('bare-os')
+
+console.log(os.platform(), os.arch())

@@ -43,7 +43,7 @@
     "prebuilds"
   ],
   "scripts": {
-    "test": "prettier . --check"
+    "test": "prettier . --check && bare test.js"
   },
   "repository": {
     "type": "git",
@@ -76,6 +76,7 @@
     "require-asset": "^1.1.0"
   },
   "devDependencies": {
+    "brittle": "^3.18.0",
     "cmake-bare": "^1.6.5",
     "cmake-bare-bundle": "^2.1.4",
     "cmake-fetch": "^1.4.0",
