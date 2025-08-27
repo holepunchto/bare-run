@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 const { command, arg, flag, summary } = require('paparam')
 const pkg = require('./package')
-const test = require('.')
+const run = require('.')
 
 const cmd = command(
   pkg.name,
@@ -18,7 +18,7 @@ const cmd = command(
 
     if (version) return console.log(`v${pkg.version}`)
 
-    await test.run(entry, { base, platform, arch, device })
+    await run(entry, { base, platform, arch, device })
   }
 )
 

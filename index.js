@@ -7,7 +7,7 @@ const fs = require('bare-pack/fs')
 const android = require('./lib/android')
 const ios = require('./lib/ios')
 
-exports.run = async function run(entry, opts = {}) {
+module.exports = async function run(entry, opts = {}) {
   const { base = '.', platform = process.platform, arch = process.arch } = opts
 
   let bundle = await pack(
