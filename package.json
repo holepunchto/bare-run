@@ -1,7 +1,7 @@
 {
-  "name": "bare-test",
+  "name": "bare-run",
   "version": "0.0.0",
-  "description": "Cross-platform test driver for Bare",
+  "description": "Cross-platform script runner for Bare",
   "exports": {
     "./package": "./package.json",
     ".": "./index.js"
@@ -33,7 +33,7 @@
     }
   },
   "bin": {
-    "bare-test": "bin.js"
+    "bare-run": "bin.js"
   },
   "files": [
     "index.js",
@@ -46,14 +46,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/holepunchto/bare-test.git"
+    "url": "git+https://github.com/holepunchto/bare-run.git"
   },
   "author": "Holepunch",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/holepunchto/bare-test/issues"
+    "url": "https://github.com/holepunchto/bare-run/issues"
   },
-  "homepage": "https://github.com/holepunchto/bare-test#readme",
+  "homepage": "https://github.com/holepunchto/bare-run#readme",
   "engines": {
     "bare": ">=1.16.0"
   },

@@ -1,9 +1,9 @@
-# bare-test
+# bare-run
 
-Cross-platform test driver for Bare.
+Cross-platform script runner for Bare.
 
 ```
-npm i bare-test
+npm i [-g] bare-run
 ```
 
 ## License
