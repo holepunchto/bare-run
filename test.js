@@ -22,3 +22,15 @@ test('darwin', { skip: !isDarwin }, async (t) => {
     platform: 'darwin'
   })
 })
+
+test('linux', { skip: !isLinux }, async (t) => {
+  await run(require.resolve('./test/fixtures/basic/index.js'), {
+    platform: 'linux'
+  })
+})
+
+test('windows', { skip: !isWindows }, async (t) => {
+  await run(require.resolve('./test/fixtures/basic/index.js'), {
+    platform: 'win32'
+  })
+})
