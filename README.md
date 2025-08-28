@@ -40,10 +40,10 @@ Options include:
 
 ```js
 options = {
-  base: '.',                    // Base path for the bundle
-  platform: process.platform,   // Target platform
-  arch: process.arch,          // Target architecture
-  device: undefined            // Device name for mobile platforms
+  base: '.', // Base path for the bundle
+  platform: process.platform, // Target platform
+  arch: process.arch, // Target architecture
+  device: undefined // Device name for mobile platforms
 }
 ```
 
