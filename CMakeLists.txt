@@ -42,7 +42,10 @@ target_link_libraries(
 )
 
 link_bare_module(bare_run bare-fs)
+link_bare_module(bare_run bare-module)
+link_bare_module(bare_run bare-module-lexer)
 link_bare_module(bare_run bare-os)
+link_bare_module(bare_run bare-url)
 
 bare_target(target)
 
