@@ -61,7 +61,7 @@
   "dependencies": {
     "bare-bundle": "^1.9.0",
     "bare-bundle-id": "^1.0.1",
-    "bare-fs": "^4.2.1",
+    "bare-fs": "^4.3.1",
     "bare-module": "^5.0.2",
     "bare-module-traverse": "^1.5.1",
     "bare-os": "^3.6.2",
