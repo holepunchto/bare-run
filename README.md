@@ -69,7 +69,11 @@ Flags include:
 --platform|-p <name>
 --arch|-a <name>
 --device|-d <name>
+--low-power
+--doze
 ```
+
+`--low-power` and `--doze` flags are specific to Android.
 
 ##### Basic Usage
 
