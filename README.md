@@ -64,16 +64,15 @@ Run the module graph rooted at `<entry>` on the specified platform and architect
 Flags include:
 
 ```console
---version|-v
---base <path>
---platform|-p <name>
---arch|-a <name>
---device|-d <name>
---low-power
---doze
+--version|-v           Print the current version
+--base <path>          The base path of the bundle
+--platform|-p <name>   The operating system platform to bundle for
+--arch|-a <name>       The operating system architecture to bundle for
+--device|-d <name>     The name of the device to launch
+--low-power            Set phone to Low Power conditions, Android only
+--doze                 Set phone to Doze mode, Android only
+--help|-h              Show help
 ```
-
-`--low-power` and `--doze` flags are specific to Android.
 
 ##### Basic Usage
 
