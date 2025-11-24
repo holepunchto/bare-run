@@ -83,11 +83,11 @@ main(int argc, char *argv[]) {
   err = bare_load(bare, "bare:/test.bundle", &source, NULL);
   (void) err;
 
-  err = bare_run(bare);
+  err = bare_run(bare, UV_RUN_DEFAULT);
   assert(err == 0);
 
   int exit_code;
-  err = bare_teardown(bare, &exit_code);
+  err = bare_teardown(bare, UV_RUN_DEFAULT, &exit_code);
   assert(err == 0);
 
   err = uv_loop_close(loop);
