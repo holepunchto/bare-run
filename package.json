@@ -11,6 +11,10 @@
       "bare": "./lib/runtime/bare.js",
       "node": "./lib/runtime/node.js"
     },
+    "#env": {
+      "bare": "./lib/env/bare.js",
+      "default": "./lib/env/node.js"
+    },
     "child_process": {
       "bare": "bare-subprocess",
       "default": "child_process"
