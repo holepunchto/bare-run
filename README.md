@@ -15,8 +15,7 @@ const run = require('bare-run')
 
 try {
   await run('./src/app.js', {
-    platform: 'android',
-    arch: 'arm64',
+    host: 'android-arm64',
     device: 'Pixel_7'
   })
   console.log('App started successfully')
@@ -40,16 +39,15 @@ Options include:
 
 ```js
 options = {
-  base: '.', // Base path for the bundle
-  platform: process.platform, // Target platform
-  arch: process.arch, // Target architecture
-  device: undefined // Device name for mobile platforms
+  base: '.',
+  host,
+  device
 }
 ```
 
 The function returns a Promise that resolves when the bundle execution completes.
 
-### Supported Platforms
+### Supported platforms
 
 - **Android**: Runs on Android devices and emulators via ADB
 - **iOS**: Runs on iOS simulators and devices via Xcode tools
@@ -66,45 +64,44 @@ Flags include:
 ```console
 --version|-v           Print the current version
 --base <path>          The base path of the bundle
---platform|-p <name>   The operating system platform to bundle for
---arch|-a <name>       The operating system architecture to bundle for
+--host <host>          The host to bundle for
 --device|-d <name>     The name of the device to launch
 --low-power            Set phone to Low Power conditions, Android only
 --doze                 Set phone to Doze mode, Android only
 --help|-h              Show help
 ```
 
-##### Basic Usage
+##### Examples
 
 ```bash
 # Run a basic JavaScript file
 bare-run index.js
 
 # Run with specific platform and architecture
-bare-run app.js --platform android --arch arm64
+bare-run app.js --host android-arm64
 
 # Run with custom base path
 bare-run src/main.js --base /path/to/project
 ```
 
-##### Platform Targeting
+##### Platform targeting
 
-By default, the script will run on the host platform and architecture. To run on a different target system, use the `--platform` and `--arch` flags.
+By default, the script will run on the host platform and architecture. To run on a different target system, use the `--host` flags.
 
 ```console
-bare-run --platform <darwin|ios|linux|android|win32> --arch <arm|arm64|ia32|x64> index.js
+bare-run --host <platform>-<arch>[-<environment>] index.js
 ```
 
-##### Device Selection
+##### Device selection
 
 For mobile platforms, you can specify a target device using the `--device` flag.
 
 ```console
 # Run on specific iOS device
-bare-run app.js --platform ios --device "iPhone 15"
+bare-run app.js --host ios-arm64-simulator --device "iPhone 15"
 
 # Run on specific Android device
-bare-run app.js --platform android --device "Pixel_7"
+bare-run app.js --host android-arm64 --device "Pixel_7"
 ```
 
 ## License

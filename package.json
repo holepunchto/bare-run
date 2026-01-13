@@ -7,6 +7,10 @@
     ".": "./index.js"
   },
   "imports": {
+    "#runtime": {
+      "bare": "./lib/runtime/bare.js",
+      "node": "./lib/runtime/node.js"
+    },
     "child_process": {
       "bare": "bare-subprocess",
       "default": "child_process"
@@ -22,10 +26,6 @@
     "path": {
       "bare": "bare-path",
       "default": "path"
-    },
-    "process": {
-      "bare": "bare-process",
-      "default": "process"
     },
     "url": {
       "bare": "bare-url",
@@ -62,12 +62,11 @@
     "bare-bundle": "^1.9.0",
     "bare-bundle-id": "^1.0.1",
     "bare-fs": "^4.3.1",
-    "bare-module": "^5.0.2",
-    "bare-module-traverse": "^1.5.1",
+    "bare-module": "^6.1.2",
+    "bare-module-traverse": "^2.0.0",
     "bare-os": "^3.6.2",
-    "bare-pack": "^1.4.2",
+    "bare-pack": "^2.0.0",
     "bare-path": "^3.0.0",
-    "bare-process": "^4.2.1",
     "bare-subprocess": "^5.1.1",
     "bare-unpack": "^1.0.2",
     "bare-url": "^2.2.2",
@@ -78,7 +77,7 @@
   "devDependencies": {
     "brittle": "^3.18.0",
     "cmake-bare": "^1.6.5",
-    "cmake-bare-bundle": "^2.1.4",
+    "cmake-bare-bundle": "^3.0.0",
     "cmake-fetch": "^1.4.0",
     "prettier": "^3.4.1",
     "prettier-config-holepunch": "^2.0.0"
