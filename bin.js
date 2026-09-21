@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const { command, arg, flag, summary } = require('paparam')
 const pkg = require('./package')
+const runtime = require('#runtime')
 const run = require('.')
 
 const cmd = command(
@@ -19,7 +20,13 @@ const cmd = command(
 
     if (version) return console.log(`v${pkg.version}`)
 
-    await run(entry, { base, host, device, lowPower, doze })
+    try {
+      await run(entry, { base, host, device, lowPower, doze })
+    } catch (err) {
+      if (err.status === undefined) throw err
+
+      runtime.exitCode = err.status
+    }
   }
 )
 

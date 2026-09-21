@@ -5,6 +5,7 @@ const pack = require('bare-pack')
 const { readModule, listPrefix } = require('bare-pack/fs')
 const runtime = require('#runtime')
 
+const errors = require('./lib/errors')
 const android = require('./lib/android')
 const ios = require('./lib/ios')
 const desktop = require('./lib/desktop')
@@ -28,12 +29,19 @@ module.exports = async function run(entry, opts = {}) {
 
   const [platform] = host.split('-', 1)
 
+  let result
+
   switch (platform) {
     case 'android':
-      return android.run(bundle, opts)
+      result = await android.run(bundle, opts)
+      break
     case 'ios':
-      return ios.run(bundle, opts)
+      result = await ios.run(bundle, opts)
+      break
     default:
-      return desktop.run(bundle, opts)
+      result = await desktop.run(bundle, opts)
   }
+
+  if (result.signal) throw errors.PROCESS_KILLED(result.signal)
+  if (result.status !== 0) throw errors.PROCESS_FAILED(result.status)
 }

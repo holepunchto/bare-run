@@ -73,7 +73,7 @@
     "bare-os": "^3.6.2",
     "bare-pack": "^2.0.0",
     "bare-path": "^3.0.0",
-    "bare-subprocess": "^5.1.1",
+    "bare-subprocess": "^6.1.0",
     "bare-unpack": "^1.0.2",
     "bare-url": "^2.2.2",
     "bare-which": "^2.0.0",
