@@ -1,7 +1,5 @@
-**/*.bundle.*
-build
-coverage
 node_modules
-prebuilds
-sandbox
 sandbox.js
+sandbox
+coverage
+package-lock.json

@@ -1,8 +1,3 @@
-const { pathToFileURL } = require('url')
-const { resolve } = require('bare-module-traverse')
-const id = require('bare-bundle-id')
-const pack = require('bare-pack')
-const { readModule, listPrefix } = require('bare-pack/fs')
 const runtime = require('#runtime')
 
 const errors = require('./lib/errors')
@@ -11,21 +6,7 @@ const ios = require('./lib/ios')
 const desktop = require('./lib/desktop')
 
 module.exports = async function run(entry, opts = {}) {
-  const { base = '.', host = runtime.host } = opts
-
-  let bundle = await pack(
-    pathToFileURL(entry),
-    {
-      host,
-      resolve: resolve.bare
-    },
-    readModule,
-    listPrefix
-  )
-
-  bundle = bundle.unmount(pathToFileURL(base))
-
-  bundle.id = id(bundle).toString('hex')
+  const { host = runtime.host } = opts
 
   const [platform] = host.split('-', 1)
 
@@ -33,13 +14,13 @@ module.exports = async function run(entry, opts = {}) {
 
   switch (platform) {
     case 'android':
-      result = await android.run(bundle, opts)
+      result = await android.run(entry, opts)
       break
     case 'ios':
-      result = await ios.run(bundle, opts)
+      result = await ios.run(entry, opts)
       break
     default:
-      result = await desktop.run(bundle, opts)
+      result = await desktop.run(entry, opts)
   }
 
   if (result.signal) throw errors.PROCESS_KILLED(result.signal)
