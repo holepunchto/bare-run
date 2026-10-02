@@ -11,14 +11,6 @@
       "bare": "./lib/runtime/bare.js",
       "node": "./lib/runtime/node.js"
     },
-    "#env": {
-      "bare": "./lib/env/bare.js",
-      "default": "./lib/env/node.js"
-    },
-    "child_process": {
-      "bare": "bare-subprocess",
-      "default": "child_process"
-    },
     "fs": {
       "bare": "bare-fs",
       "default": "fs"
@@ -64,13 +56,11 @@
   },
   "dependencies": {
     "bare-build": "^1.2.1",
-    "bare-env": "^3.0.1",
+    "bare-device": "^0.1.0",
     "bare-fs": "^4.3.1",
     "bare-os": "^3.6.2",
     "bare-path": "^3.0.0",
-    "bare-subprocess": "^6.1.0",
     "bare-url": "^2.2.2",
-    "bare-which": "^2.0.0",
     "paparam": "^1.8.0"
   },
   "devDependencies": {
