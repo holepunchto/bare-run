@@ -1,6 +1,6 @@
 # bare-run
 
-Cross-platform script runner for Bare. It takes a bundled module graph and executes it on various platforms including desktop, Android, and iOS. Built on top of <https://github.com/holepunchto/bare-pack>, it provides platform-specific execution environments and device management.
+Cross-platform script runner for Bare. It takes a bundled module graph and executes it on various platforms including desktop, Android, and iOS. Built on top of <https://github.com/holepunchto/bare-build>, it builds a standalone executable for the target and provides platform-specific execution environments and device management.
 
 A [CLI](#cli) is also included and provides out-of-the-box support for running JavaScript bundles across different platforms and architectures.
 

@@ -7,30 +7,24 @@ const isWindows = Bare.platform === 'win32'
 
 test.skip('ios', { skip: !isDarwin }, async (t) => {
   await run(require.resolve('./test/fixtures/basic/index.js'), {
-    platform: 'ios'
+    host: `ios-${Bare.arch}-simulator`
   })
 })
 
 test.skip('android', { skip: !isDarwin && !isLinux }, async (t) => {
   await run(require.resolve('./test/fixtures/basic/index.js'), {
-    platform: 'android'
+    host: 'android-arm64'
   })
 })
 
 test('darwin', { skip: !isDarwin }, async (t) => {
-  await run(require.resolve('./test/fixtures/basic/index.js'), {
-    platform: 'darwin'
-  })
+  await run(require.resolve('./test/fixtures/basic/index.js'))
 })
 
 test('linux', { skip: !isLinux }, async (t) => {
-  await run(require.resolve('./test/fixtures/basic/index.js'), {
-    platform: 'linux'
-  })
+  await run(require.resolve('./test/fixtures/basic/index.js'))
 })
 
 test('windows', { skip: !isWindows }, async (t) => {
-  await run(require.resolve('./test/fixtures/basic/index.js'), {
-    platform: 'win32'
-  })
+  await run(require.resolve('./test/fixtures/basic/index.js'))
 })
