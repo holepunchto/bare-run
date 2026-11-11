@@ -1,4 +1,5 @@
 const { find } = require('bare-device')
+const hostParser = require('bare-host-parser')
 const runtime = require('#runtime')
 const errors = require('./lib/errors')
 const build = require('./lib/build')
@@ -6,7 +7,7 @@ const build = require('./lib/build')
 module.exports = async function run(entry, opts = {}) {
   const { host = runtime.host, device: name = null, lowPower = false, doze = false } = opts
 
-  const [platform] = host.split('-', 1)
+  const [platform] = hostParser.conditions(host)
 
   let device
   try {
