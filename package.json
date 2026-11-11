@@ -58,6 +58,7 @@
     "bare-build": "^1.2.1",
     "bare-device": "^0.1.0",
     "bare-fs": "^4.3.1",
+    "bare-host-parser": "^1.0.0",
     "bare-os": "^3.6.2",
     "bare-path": "^3.0.0",
     "bare-url": "^2.2.2",
